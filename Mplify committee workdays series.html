@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 Series at a Glance | Mplify Alliance</title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.min.css" />
+
+  <!-- Google Fonts: Sansation (headings) + Roboto (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Mplify Brand Tokens ── */
+    :root {
+      --navy:      #000136;
+      --blue-mid:  #244E9E;
+      --blue-lt:   #3D7BC7;
+      --purple:    #790072;
+      --orange:    #FD7801;
+      --yellow:    #FEBF10;
+      --gray-dk:   #555555;
+      --gray-lt:   #A1A1A1;
+      --white:     #FFFFFF;
+    }
+
+    /* ── Override Reveal base ── */
+    .reveal-viewport { background: var(--navy); }
+
+    .reveal {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Sansation', sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-shadow: none;
+    }
+
+    .reveal h1 { font-size: 2.0em; line-height: 1.15; }
+    .reveal h2 { font-size: 1.45em; color: var(--blue-lt); margin-bottom: 0.5em; }
+    .reveal h3 { font-size: 1.1em;  color: var(--yellow); margin-bottom: 0.3em; }
+
+    .reveal section { text-align: left; }
+
+    /* ── Slide background ── */
+    .reveal .slides section {
+      background: transparent;
+      border: none !important;
+      outline: none !important;
+    }
+
+    /* ── Decorative top bar ── */
+    .reveal .slides section::before {
+      content: '';
+      position: absolute;
+      top: -36px;
+      left: -60px;
+      right: -60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue-mid), var(--blue-lt), var(--orange));
+      border-radius: 2px;
+    }
+
+    /* ── Orange accent rule beneath h2 ── */
+    .accent-rule {
+      width: 52px;
+      height: 3px;
+      background: var(--orange);
+      border-radius: 2px;
+      margin: 6px 0 22px;
+    }
+
+    /* ── Event row ── */
+    .event-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--blue-lt);
+      padding-left: 16px;
+    }
+    .event-date {
+      min-width: 300px;
+      width: 300px;
+      white-space: nowrap;
+      font-family: 'Sansation', sans-serif;
+      font-weight: 700;
+      font-size: 0.48em;
+      color: var(--orange);
+      line-height: 1.2;
+    }
+    .event-date span {
+      display: block;
+      font-size: 0.8em;
+      color: var(--gray-lt);
+      font-weight: 400;
+      font-family: 'Roboto', sans-serif;
+    }
+    .event-detail h3 {
+      font-size: 0.55em !important;
+      margin-bottom: 4px;
+      color: var(--white) !important;
+    }
+    .event-detail p {
+      font-size: 0.37em;
+      color: var(--gray-lt);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Stat boxes ── */
+    .stat-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .stat-box {
+      flex: 1;
+      text-align: center;
+      padding: 16px 10px;
+      border-radius: 8px;
+      background: rgba(36, 78, 158, 0.18);
+      border: 1px solid rgba(61, 123, 199, 0.3);
+    }
+    .stat-num {
+      font-family: 'Sansation', sans-serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--yellow);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.48em;
+      color: var(--gray-lt);
+      margin-top: 6px;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.3;
+    }
+
+    /* ── Footer ── */
+    .slide-footer {
+      position: absolute;
+      bottom: 4px;
+      right: 0;
+      font-family: 'Sansation', sans-serif;
+      font-size: 0.38em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+    }
+
+    /* Reveal overrides */
+    .reveal .progress { color: var(--orange); }
+    .reveal .controls button { color: var(--blue-lt); }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <!-- Fixed logo overlay -->
+  <div style="position:fixed; top:18px; right:24px; z-index:1000; pointer-events:none;">
+    <img src="https://www.mplify.net/wp-content/themes/base/images/logo.svg"
+         alt="Mplify"
+         style="height:36px; filter:brightness(0) invert(1); opacity:0.9;" />
+  </div>
+  <div class="slides">
+
+    <!-- SLIDE 3 — 2026 SERIES AT A GLANCE -->
+    <section>
+      <h2>2026 Series at a Glance</h2>
+
+      <div class="stat-row" style="margin-bottom:24px">
+        <div class="stat-box">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Workday Events</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Committees</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">190+</div>
+          <div class="stat-label">Member Companies</div>
+        </div>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date">28–29 Apr<span>Online</span></div>
+        <div class="event-detail">
+          <h3>Interim Member Workdays</h3>
+          <p>Two half day sessions from 9am Eastern to 1pm Eastern each day. Work will be done to prepare the topics of Agentic LSO and NaaS for AI in the lead up to the Mplify Member Summit in Lisbon.</p>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="event-date">8–9 Jun<span>Lisbon, Portugal<br/>(Mplify Member Summit)</span></div>
+        <div class="event-detail">
+          <h3>Member Workdays — EMEA</h3>
+          <p>Two full day in person sessions prior to the Member Summit. Work will focus on coordinating across the committees the projects developing in the areas of Agentic LSO and NaaS for AI.</p>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="event-date">21–22 Sep*<span>Boston, USA<br/>(Mplify Member Summit)</span></div>
+        <div class="event-detail">
+          <h3>Member Workdays — Americas</h3>
+          <p>Two full day in person sessions prior to the Member Summit. Work will focus on coordinating across the committees the projects developing in the areas of Agentic LSO and NaaS for AI.</p>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="event-date">1–2 Dec*<span>Singapore<br/>(ITW Asia)</span></div>
+        <div class="event-detail">
+          <h3>Member Workdays — Asia</h3>
+          <p>Two full day in person sessions colocated with the ITW Asia event. Work will focus on coordinating across the committees the projects developing in the areas of Agentic LSO and NaaS for AI.</p>
+        </div>
+      </div>
+      <p style="position:absolute; bottom:-29px; left:0; font-size:0.38em; color:var(--orange); font-family:'Roboto',sans-serif; margin:0;">* Dates to be confirmed</p>
+      <div class="slide-footer">mplify.net</div>
+    </section>
+
+  </div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: false,
+    progress: false,
+    controls: false,
+    center: false,
+    transition: 'fade',
+    transitionSpeed: 'slow',
+    backgroundTransition: 'fade',
+    margin: 0.12,
+    width: 1280,
+    height: 720,
+  });
+</script>
+</body>
+</html>
