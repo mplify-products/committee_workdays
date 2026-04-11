@@ -29,10 +29,11 @@
     }
 
     /* ══════════════════════════════════════════
-       DARK MODE (default / prefers dark)
-       Background: navy  |  Text: white
+       DARK MODE (disabled — uncomment :root block
+       and wrap light mode below in its media query
+       to re-enable adaptive theming)
     ══════════════════════════════════════════ */
-    :root {
+    /* :root {
       --bg-stage:          var(--navy);
       --bg-card:           rgba(36, 78, 158, 0.18);
       --border-card:       rgba(61, 123, 199, 0.30);
@@ -44,28 +45,24 @@
       --text-date:         var(--orange);
       --text-footer:       var(--blue-mid);
       --border-event:      var(--blue-lt);
-
-    }
+    } */
 
     /* ══════════════════════════════════════════
-       LIGHT MODE
-       Background: white  |  Text: navy
+       LIGHT MODE (active — always applied)
+       Background: light blue-grey  |  Text: navy
     ══════════════════════════════════════════ */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg-stage:          #F0F4FA;
-        --bg-card:           rgba(36, 78, 158, 0.07);
-        --border-card:       rgba(36, 78, 158, 0.20);
-        --bg-agenda:         rgba(253, 120, 1, 0.06);
-        --text-primary:      var(--navy);
-        --text-secondary:    var(--gray-dk);
-        --text-h2:           var(--blue-mid);
-        --text-h3:           var(--orange);
-        --text-date:         var(--blue-mid);
-        --text-footer:       var(--blue-mid);
-        --border-event:      var(--blue-mid);
-
-      }
+    :root {
+      --bg-stage:          #F0F4FA;
+      --bg-card:           rgba(36, 78, 158, 0.07);
+      --border-card:       rgba(36, 78, 158, 0.20);
+      --bg-agenda:         rgba(253, 120, 1, 0.06);
+      --text-primary:      var(--navy);
+      --text-secondary:    var(--gray-dk);
+      --text-h2:           var(--blue-mid);
+      --text-h3:           var(--orange);
+      --text-date:         var(--blue-mid);
+      --text-footer:       var(--blue-mid);
+      --border-event:      var(--blue-mid);
     }
 
     /* ── Override Reveal base ── */
@@ -176,14 +173,13 @@
       font-family: 'Sansation', sans-serif;
       font-size: 1.8em;
       font-weight: 700;
-      color: var(--yellow);
+      color: var(--orange); /* yellow in dark mode */
       line-height: 1;
     }
 
-    /* In light mode, yellow on light bg has insufficient contrast — use orange instead */
-    @media (prefers-color-scheme: light) {
+    /* @media (prefers-color-scheme: light) {
       .stat-num { color: var(--orange); }
-    }
+    } */
 
     .stat-label {
       font-size: 0.48em;
@@ -245,14 +241,14 @@
       font-family: 'Sansation', sans-serif;
       font-weight: 700;
       font-size: 0.45em;
-      color: var(--yellow);
+      color: var(--orange); /* yellow in dark mode */
       display: block;
       line-height: 1;
       margin-bottom: 4px;
     }
-    @media (prefers-color-scheme: light) {
+    /* @media (prefers-color-scheme: light) {
       .agenda-label { color: var(--orange); }
-    }
+    } */
 
     .agenda-list {
       list-style: none;
@@ -289,14 +285,14 @@
 
     /* ── Links ── */
     .reveal a {
-      color: var(--blue-lt);
+      color: var(--blue-mid); /* blue-lt in dark mode */
       text-decoration: none;
       border-bottom: 1px solid var(--orange);
       padding-bottom: 1px;
     }
-    @media (prefers-color-scheme: light) {
+    /* @media (prefers-color-scheme: light) {
       .reveal a { color: var(--blue-mid); }
-    }
+    } */
 
     /* ── Dates confirmed note ── */
     .dates-note {
@@ -309,13 +305,13 @@
       margin: 0;
     }
 
-    /* ── Mode-specific logos ── */
-    .logo-light { display: none; }
-    .logo-dark  { display: block; }
-    @media (prefers-color-scheme: light) {
+    /* ── Mode-specific logos (light always active) ── */
+    .logo-light { display: block; }
+    .logo-dark  { display: none; }
+    /* @media (prefers-color-scheme: light) {
       .logo-light { display: block; }
       .logo-dark  { display: none; }
-    }
+    } */
 
     /* Reveal chrome */
     .reveal .progress { color: var(--orange); }
