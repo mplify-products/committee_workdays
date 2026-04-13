@@ -251,8 +251,8 @@
     } */
 
     .agenda-list {
-      list-style: none;
-      padding: 0;
+      list-style: none !important;
+      padding: 0 !important;
       margin: 4px 0 0;
     }
     .agenda-list li {
@@ -262,6 +262,10 @@
       padding-left: 12px;
       position: relative;
       margin-bottom: 4px;
+      list-style: none !important;
+    }
+    .agenda-list li::before {
+      content: none !important;
     }
     .agenda-list li > span {
       position: absolute;
@@ -423,10 +427,10 @@
             <ul class="agenda-list">
               <li><span>›</span>Use cases and market demand</li>
               <li><span>›</span>High level architecture</li>
-              <li><span>›</span>Technical package and release deliverables</li>
+              <li><span>›</span>Technical package and release framework</li>
               <li><span>›</span>Agent legal identity</li>
               <li><span>›</span>Model dependency</li>
-              <li><span>›</span>Roadmap and release framework</li>
+              <li><span>›</span>Secure agentic LSO and certification</li>
             </ul>
           </div>
         </div>
