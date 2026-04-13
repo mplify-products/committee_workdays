@@ -223,7 +223,7 @@
     }
 
     .day-desc {
-      font-size: 0.5em;
+      font-size: 0.4em;
       color: var(--text-secondary);
       line-height: 1.6;
       margin: 0 0 10px;
@@ -317,9 +317,21 @@
       .logo-dark  { display: none; }
     } */
 
-    /* Reveal chrome */
     .reveal .progress { color: var(--orange); }
-    .reveal .controls button { color: var(--blue-lt); }
+    @keyframes controlPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .reveal .controls button {
+      color: var(--blue-lt);
+      animation: controlPulse 2s ease-in-out infinite;
+    }
+    .reveal .controls {
+      bottom: 16px !important;
+      top: auto !important;
+      right: 16px !important;
+      z-index: 9999 !important;
+    }
   </style>
 </head>
 <body>
@@ -361,7 +373,7 @@
       <div class="event-row">
         <div class="event-date">8–9 Jun<span>Lisbon, Portugal<br/>(<a href="https://gne.mplify.net/mplify-member-summit-emea/" target="_blank">Mplify Member Summit</a>)</span></div>
         <div class="event-detail">
-          <h3>Member Workdays — EMEA</h3>
+          <h3><a href="#/2">Member Workdays — EMEA</a></h3>
           <p>Two full day in person sessions prior to the Member Summit. Work will focus on coordinating across the committees the projects developing in the areas of Agentic LSO and NaaS for AI.</p>
         </div>
       </div>
@@ -431,6 +443,65 @@
               <li><span>›</span>Agent legal identity</li>
               <li><span>›</span>Model dependency</li>
               <li><span>›</span>Secure agentic LSO and certification</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SLIDE 3 — INTERIM MEMBER WORKDAYS (DUPLICATE) -->
+    <section>
+      <h2>Member Workdays — EMEA</h2>
+      <p style="font-size:0.5em; color:var(--text-secondary); font-family:'Roboto',sans-serif; font-weight:300; margin:-10px 0 16px; line-height:1.6;">Face to face workdays to coordinate all the ongoing projects in all the member committees.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:18px;">
+
+        <!-- Day 1 -->
+        <div class="day-card day-card-blue">
+          <div style="font-family:'Sansation',sans-serif; font-weight:700; font-size:0.7em; color:var(--text-date); margin-bottom:2px;">Mon 8 Jun</div>
+          <div class="day-meta">9am–5pm Lisbon</div>
+          <div class="day-meta">10am–6pm Central Europe</div>
+          <div class="day-meta">4pm–12am* Singapore</div>
+          <div class="day-meta">4am–12pm Eastern</div>
+          <div class="day-meta-sm">* next day</div>
+          <div class="day-meta" style="margin-bottom:10px;">Location: Teams (link to be provided)</div>
+          <div class="day-title">Day 1</div>
+          <p class="day-desc">Discussion and actions for projects relating to NaaS and agentic LSO.</p>
+          <div class="agenda-block">
+            <span class="agenda-label">📋 Agenda</span>
+            <ul class="agenda-list">
+              <li><span>›</span>NaaS for AI use cases</li>
+              <li><span>›</span>NaaS Federation</li>
+              <li><span>›</span>Agentic LSO architecture</li>
+              <li><span>›</span>Secure agentic LSO</li>
+              <li><span>›</span>AI agent identity</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card day-card-orange">
+          <div style="font-family:'Sansation',sans-serif; font-weight:700; font-size:0.7em; color:var(--text-date); margin-bottom:2px;">Tue 9 Jun</div>
+          <div class="day-meta">9am–5pm Lisbon</div>
+          <div class="day-meta">10am–6pm Central Europe</div>
+          <div class="day-meta">4pm–12am* Singapore</div>
+          <div class="day-meta">4am–12pm Eastern</div>
+          <div class="day-meta-sm">* next day</div>
+          <div class="day-meta" style="margin-bottom:10px;">Location: Teams (link to be provided)</div>
+          <div class="day-title">Day 2</div>
+          <p class="day-desc">Discussion and actions for projects relating to products.</p>
+          <div class="agenda-block">
+            <span class="agenda-label">📋 Agenda</span>
+            <ul class="agenda-list">
+              <li><span>›</span>Carrier Ethernet</li>
+              <li><span>›</span>Wavelength</li>
+              <li><span>›</span>IP</li>
+              <li><span>›</span>Cross Connect</li>
+              <li><span>›</span>Cloud Connect</li>
+              <li><span>›</span>IaaS</li>
+              <li><span>›</span>SD-WAN</li>
+              <li><span>›</span>Cybersecurity</li>
             </ul>
           </div>
         </div>
