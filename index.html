@@ -3,443 +3,530 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Committee Leadership and Charters | Mplify Alliance</title>
+  <title>2026 at a Glance | Mplify Alliance</title>
+
+  <!-- Reveal.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.min.css" />
+
+  <!-- Google Fonts: Sansation (headings) + Roboto (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
+    /* ── Mplify Brand Palette (fixed) ── */
     :root {
-      --navy:#000136; --blue-mid:#244E9E; --blue-lt:#3D7BC7;
-      --purple:#790072; --orange:#FD7801; --yellow:#FEBF10;
-      --gray-dk:#555555; --gray-lt:#A1A1A1; --white:#FFFFFF;
-      --bg-stage:#F0F4FA;
-      --bg-card:rgba(36,78,158,0.07);
-      --border-card:rgba(36,78,158,0.20);
-      --text-primary:var(--navy);
-      --text-secondary:var(--gray-dk);
-      --text-h2:var(--blue-mid);
-      --text-h3:var(--orange);
-      --text-date:var(--blue-mid);
-      --border-event:var(--blue-mid);
+      --navy:      #000136;
+      --blue-mid:  #244E9E;
+      --blue-lt:   #3D7BC7;
+      --purple:    #790072;
+      --orange:    #FD7801;
+      --yellow:    #FEBF10;
+      --gray-dk:   #555555;
+      --gray-lt:   #A1A1A1;
+      --white:     #FFFFFF;
     }
-    .reveal-viewport { background:var(--bg-stage); }
-    .reveal { font-family:'Roboto',sans-serif; font-weight:300; color:var(--text-primary); }
-    .reveal h1,.reveal h2,.reveal h3,.reveal h4 {
-      font-family:'Sansation',sans-serif; font-weight:700;
-      text-transform:none; letter-spacing:0.02em; color:var(--text-primary); text-shadow:none;
+
+    /* ══════════════════════════════════════════
+       DARK MODE (disabled — uncomment :root block
+       and wrap light mode below in its media query
+       to re-enable adaptive theming)
+    ══════════════════════════════════════════ */
+    /* :root {
+      --bg-stage:          var(--navy);
+      --bg-card:           rgba(36, 78, 158, 0.18);
+      --border-card:       rgba(61, 123, 199, 0.30);
+      --bg-agenda:         rgba(253, 120, 1, 0.08);
+      --text-primary:      var(--white);
+      --text-secondary:    var(--gray-lt);
+      --text-h2:           var(--blue-lt);
+      --text-h3:           var(--yellow);
+      --text-date:         var(--orange);
+      --text-footer:       var(--blue-mid);
+      --border-event:      var(--blue-lt);
+    } */
+
+    /* ══════════════════════════════════════════
+       LIGHT MODE (active — always applied)
+       Background: light blue-grey  |  Text: navy
+    ══════════════════════════════════════════ */
+    :root {
+      --bg-stage:          #F0F4FA;
+      --bg-card:           rgba(36, 78, 158, 0.07);
+      --border-card:       rgba(36, 78, 158, 0.20);
+      --bg-agenda:         rgba(253, 120, 1, 0.06);
+      --text-primary:      var(--navy);
+      --text-secondary:    var(--gray-dk);
+      --text-h2:           var(--blue-mid);
+      --text-h3:           var(--orange);
+      --text-date:         var(--blue-mid);
+      --text-footer:       var(--blue-mid);
+      --border-event:      var(--blue-mid);
     }
-    .reveal h1 { font-size:2.0em; line-height:1.15; }
-    .reveal h2 { font-size:1.45em; color:var(--text-h2); margin-bottom:0.5em; }
-    .reveal h3 { font-size:1.1em; color:var(--text-h3); margin-bottom:0.3em; }
-    .reveal section { text-align:left; }
-    .reveal .slides section { background:transparent; border:none !important; outline:none !important; }
+
+    /* ── Override Reveal base ── */
+    .reveal-viewport { background: var(--bg-stage); }
+
+    .reveal {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      color: var(--text-primary);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Sansation', sans-serif;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.02em;
+      color: var(--text-primary);
+      text-shadow: none;
+    }
+
+    .reveal h1 { font-size: 2.0em; line-height: 1.15; }
+    .reveal h2 { font-size: 1.45em; color: var(--text-h2); margin-bottom: 0.5em; }
+    .reveal h3 { font-size: 1.1em;  color: var(--text-h3); margin-bottom: 0.3em; }
+
+    .reveal section { text-align: left; }
+
+    /* ── Slide background ── */
+    .reveal .slides section {
+      background: transparent;
+      border: none !important;
+      outline: none !important;
+    }
+
+    /* ── Decorative top bar ── */
     .reveal .slides section::before {
-      content:''; position:absolute; top:-36px; left:-60px; right:-60px; height:4px;
-      background:linear-gradient(90deg,var(--blue-mid),var(--blue-lt),var(--orange)); border-radius:2px;
+      content: '';
+      position: absolute;
+      top: -36px;
+      left: -60px;
+      right: -60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue-mid), var(--blue-lt), var(--orange));
+      border-radius: 2px;
     }
-    .accent-rule { width:52px; height:3px; background:var(--orange); border-radius:2px; margin:6px 0 16px; }
-    .slide-sub { font-size:0.5em; color:var(--text-secondary); font-family:'Roboto',sans-serif; font-weight:300; margin:-10px 0 14px; line-height:1.6; }
-    .dates-note { font-size:0.35em; color:var(--gray-lt); margin-top:14px; font-family:'Roboto',sans-serif; }
 
-    /* Stat boxes */
-    .stat-row { display:flex; gap:16px; margin-top:18px; }
-    .stat-box { flex:1; text-align:center; padding:16px 10px; border-radius:8px; background:var(--bg-card); border:1px solid var(--border-card); }
-    .stat-num { font-family:'Sansation',sans-serif; font-size:1.8em; font-weight:700; color:var(--orange); line-height:1; }
-    .stat-label { font-size:0.48em; color:var(--text-secondary); margin-top:6px; font-family:'Roboto',sans-serif; line-height:1.3; }
-
-    /* Title tags */
-    .title-eyebrow { font-family:'Sansation',sans-serif; font-size:0.42em; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; font-weight:700; }
-    .title-tag-row { display:flex; gap:10px; margin-top:28px; flex-wrap:wrap; }
-    .title-tag { font-size:0.36em; font-family:'Roboto',sans-serif; background:rgba(36,78,158,0.09); border:1px solid rgba(36,78,158,0.20); border-radius:4px; padding:4px 12px; color:var(--blue-mid); }
-
-    /* Committee cards */
-    .committee-card { background:var(--bg-card); border:1px solid var(--border-card); border-radius:8px; padding:16px 18px; display:flex; flex-direction:column; }
-    .committee-card.accent-blue   { border-top:3px solid var(--blue-lt); }
-    .committee-card.accent-orange { border-top:3px solid var(--orange); }
-    .committee-card.accent-purple { border-top:3px solid var(--purple); }
-    .committee-card.accent-yellow { border-top:3px solid var(--yellow); }
-    .committee-card-title { font-family:'Sansation',sans-serif; font-weight:700; font-size:0.58em; color:var(--navy); margin-bottom:6px; height:2.8em; overflow:hidden; }
-    .committee-card-sub { font-size:0.38em; color:var(--text-secondary); line-height:1.5; margin-bottom:10px; height:7.5em; overflow:hidden; }
-    .committee-tag-row { display:flex; flex-wrap:wrap; gap:5px; }
-    .committee-tag { font-size:0.3em; font-family:'Roboto',sans-serif; background:rgba(36,78,158,0.10); border:1px solid rgba(36,78,158,0.18); border-radius:4px; padding:3px 8px; color:var(--blue-mid); white-space:nowrap; }
-
-    /* Charter rows */
-    .charter-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; margin-top:10px; }
-    .charter-row { display:flex; align-items:flex-start; gap:18px; margin-bottom:16px; border-left:3px solid var(--border-event); padding-left:16px; }
-    .charter-icon { min-width:36px; width:36px; height:36px; border-radius:8px; background:var(--bg-card); border:1px solid var(--border-card); display:flex; align-items:center; justify-content:center; font-size:0.9em; margin-top:2px; flex-shrink:0; }
-    .charter-detail h3 { font-family:'Sansation',sans-serif; font-weight:700; font-size:0.52em !important; color:var(--navy) !important; margin:0 0 4px; }
-    .charter-detail p { font-size:0.36em; color:var(--text-secondary); margin:0; line-height:1.55; }
-
-    /* Role cards */
-    .role-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:20px; }
-    .role-card { background:var(--bg-card); border:1px solid var(--border-card); border-radius:8px; padding:16px 18px; }
-    .role-badge { display:inline-block; font-family:'Sansation',sans-serif; font-weight:700; font-size:0.38em; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:4px; margin-bottom:10px; }
-    .role-badge.chair  { background:rgba(0,1,54,0.10); color:var(--navy); border:1px solid rgba(0,1,54,0.20); }
-    .role-badge.vchair { background:rgba(36,78,158,0.12); color:var(--blue-mid); border:1px solid rgba(36,78,158,0.25); }
-    .role-badge.wglead { background:rgba(253,120,1,0.10); color:var(--orange); border:1px solid rgba(253,120,1,0.25); }
-    .role-title { font-family:'Sansation',sans-serif; font-weight:700; font-size:0.52em; color:var(--navy); margin-bottom:8px; }
-    .role-list { list-style:none; margin:0; padding:0; }
-    .role-list li { font-size:0.35em; color:var(--text-secondary); line-height:1.55; padding:3px 0; border-bottom:1px solid var(--border-card); display:flex; align-items:flex-start; gap:6px; }
-    .role-list li:last-child { border-bottom:none; }
-    .role-list li span { color:var(--orange); font-weight:700; flex-shrink:0; }
-
-    /* Gov blocks */
-    .gov-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
-    .gov-block { background:var(--bg-card); border:1px solid var(--border-card); border-radius:8px; padding:16px 18px; }
-    .gov-block-title { font-family:'Sansation',sans-serif; font-weight:700; font-size:0.5em; color:var(--blue-mid); margin-bottom:8px; display:flex; align-items:center; gap:7px; }
-    .gov-block-title .dot { width:8px; height:8px; border-radius:50%; background:var(--orange); flex-shrink:0; }
-    .gov-list { list-style:none; margin:0; padding:0; }
-    .gov-list li { font-size:0.34em; color:var(--text-secondary); line-height:1.55; padding:3px 0; border-bottom:1px solid var(--border-card); display:flex; gap:6px; }
-    .gov-list li:last-child { border-bottom:none; }
-    .gov-list li span { color:var(--blue-lt); font-weight:700; flex-shrink:0; }
-
-    /* Org chart */
-    .org-connector { width:2px; height:20px; background:var(--border-card); margin-left:26px; }
-    .org-level-row { display:flex; gap:14px; align-items:flex-start; }
-    .org-box { background:var(--bg-card); border:1px solid var(--border-card); border-radius:8px; padding:10px 18px; font-family:'Sansation',sans-serif; font-weight:700; }
-    .org-box.tier-1 { font-size:0.52em; color:var(--navy); border-top:3px solid var(--navy); min-width:220px; }
-    .org-box.tier-3 { font-size:0.44em; color:var(--orange); border-top:3px solid var(--orange); min-width:160px; }
-    .org-sub-label { font-size:0.33em; color:var(--text-secondary); font-family:'Roboto',sans-serif; font-weight:300; margin-top:4px; }
-
-    /* Logo */
-    .logo-fixed { position:fixed; top:18px; left:24px; z-index:9999 !important; }
-    /* Watermark */
-    .watermark {
-      position:absolute;
-      top:50%; left:50%;
-      transform:translate(-50%, -50%) rotate(-35deg);
-      font-family:'Sansation',sans-serif;
-      font-weight:700;
-      font-size:5em;
-      color:rgba(161,161,161,0.18);
-      white-space:nowrap;
-      pointer-events:none;
-      z-index:0;
-      letter-spacing:0.08em;
-      user-select:none;
+    /* ── Orange accent rule beneath h2 ── */
+    .accent-rule {
+      width: 52px;
+      height: 3px;
+      background: var(--orange);
+      border-radius: 2px;
+      margin: 6px 0 22px;
     }
-    /* Ensure slide content sits above watermark */
-    .reveal .slides section > *:not(.watermark) { position:relative; z-index:1; }
+
+    /* ── Event row ── */
+    .event-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--border-event);
+      padding-left: 16px;
+    }
+    .event-date {
+      min-width: 300px;
+      width: 300px;
+      white-space: nowrap;
+      font-family: 'Sansation', sans-serif;
+      font-weight: 700;
+      font-size: 0.48em;
+      color: var(--text-date);
+      line-height: 1.2;
+    }
+    .event-date span {
+      display: block;
+      font-size: 0.8em;
+      color: var(--text-secondary);
+      font-weight: 400;
+      font-family: 'Roboto', sans-serif;
+    }
+    .event-detail h3 {
+      font-size: 0.55em !important;
+      margin-bottom: 4px;
+      color: var(--text-primary) !important;
+    }
+    .event-detail p {
+      font-size: 0.37em;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Stat boxes ── */
+    .stat-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .stat-box {
+      flex: 1;
+      text-align: center;
+      padding: 16px 10px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+    }
+    .stat-num {
+      font-family: 'Sansation', sans-serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--orange); /* yellow in dark mode */
+      line-height: 1;
+    }
+
+    /* @media (prefers-color-scheme: light) {
+      .stat-num { color: var(--orange); }
+    } */
+
+    .stat-label {
+      font-size: 0.48em;
+      color: var(--text-secondary);
+      margin-top: 6px;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.3;
+    }
+
+    /* ── Day cards ── */
+    .day-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 8px;
+      padding: 20px 22px;
+    }
+    .day-card-blue  { border-top: 3px solid var(--blue-lt); }
+    .day-card-orange { border-top: 3px solid var(--orange); }
+
+    .day-title {
+      font-family: 'Sansation', sans-serif;
+      font-weight: 700;
+      font-size: 0.75em;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+    }
+
+    .day-meta {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 0.38em;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+    .day-meta-sm {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 0.27em;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .day-desc {
+      font-size: 0.4em;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0 0 10px;
+    }
+
+    /* ── Agenda block ── */
+    .agenda-block {
+      background: var(--bg-agenda);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 4px 4px 0;
+      padding: 10px 12px;
+      margin-top: 10px;
+    }
+    .agenda-label {
+      font-family: 'Sansation', sans-serif;
+      font-weight: 700;
+      font-size: 0.45em;
+      color: var(--orange); /* yellow in dark mode */
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    /* @media (prefers-color-scheme: light) {
+      .agenda-label { color: var(--orange); }
+    } */
+
+    .agenda-list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 4px 0 0;
+    }
+    .agenda-list li {
+      font-size: 0.4em;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 4px;
+      list-style: none !important;
+    }
+    .agenda-list li::before {
+      content: none !important;
+    }
+    .agenda-list li > span {
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    /* ── Footer ── */
+    .slide-footer {
+      position: absolute;
+      bottom: 4px;
+      right: 0;
+      font-family: 'Sansation', sans-serif;
+      font-size: 0.38em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-footer);
+    }
+
+    /* ── Links ── */
+    .reveal a {
+      color: var(--blue-mid); /* blue-lt in dark mode */
+      text-decoration: none;
+      border-bottom: 1px solid var(--orange);
+      padding-bottom: 1px;
+    }
+    /* @media (prefers-color-scheme: light) {
+      .reveal a { color: var(--blue-mid); }
+    } */
+
+    /* ── Dates confirmed note ── */
+    .dates-note {
+      position: absolute;
+      bottom: -29px;
+      left: 0;
+      font-size: 0.38em;
+      color: var(--orange);
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+    }
+
+    /* ── Mode-specific logos (light always active) ── */
+    .logo-light { display: block; }
+    .logo-dark  { display: none; }
+    /* @media (prefers-color-scheme: light) {
+      .logo-light { display: block; }
+      .logo-dark  { display: none; }
+    } */
+
+    .reveal .progress { color: var(--orange); }
+    @keyframes controlPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .reveal .controls button {
+      color: var(--blue-lt);
+      animation: controlPulse 2s ease-in-out infinite;
+    }
+    .reveal .controls {
+      bottom: 16px !important;
+      top: auto !important;
+      right: 16px !important;
+      z-index: 9999 !important;
+    }
   </style>
 </head>
 <body>
 <div class="reveal">
-  <div class="logo-fixed">
-    <img src="Mplify-Logo-Stacked-Black.svg" alt="Mplify" style="height:72px;" />
+<!--  <div style="position:fixed; top:18px; left:24px; z-index:9999;">
+    <img src="https://www.mplify.net/Assets/Logos/Mplify-Logo-Stacked-white.svg"
+         alt="Mplify" class="logo-dark" style="height:36px;" />
+    <img src="https://www.mplify.net/Assets/Logos/Mplify-Logo-Stacked.svg"
+         alt="Mplify" class="logo-light" style="height:36px;" />
   </div>
+-->  
   <div class="slides">
 
-    <!-- SLIDE 1: TITLE -->
+    <!-- SLIDE 1 — 2026 AT A GLANCE -->
     <section>
-      <div class="title-eyebrow">Mplify Alliance &middot; Member Committees</div>
-      <h1>Committee Leadership<br/>&amp; Charters</h1>
-      <div class="accent-rule"></div>
-      <p class="slide-sub" style="max-width:680px;">How Mplify's four member committees are structured, led, and governed &mdash; from charter scope and objectives through to leadership roles, voting rules, and operational cadence.</p>
-      <div class="stat-row" style="margin-top:32px; max-width:760px;">
-        <div class="stat-box"><div class="stat-num">4</div><div class="stat-label"><a href="#/1" style="color:inherit; text-decoration:underline; text-decoration-color:var(--orange); text-underline-offset:3px;">Member Committees</a></div></div>
-        <div class="stat-box"><div class="stat-num">8</div><div class="stat-label">Co-Chairs</div></div>
-        <div class="stat-box"><div class="stat-num">12+</div><div class="stat-label">Project Leaders</div></div>
-        <div class="stat-box"><div class="stat-num">190+</div><div class="stat-label">Member Companies</div></div>
+      <h2>Mplify Committee Workdays in 2026</h2>
+
+      <div class="stat-row" style="margin-bottom:24px">
+        <div class="stat-box">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Workday Events</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Committees</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">190+</div>
+          <div class="stat-label">Member Companies</div>
+        </div>
       </div>
+
+      <div class="event-row">
+        <div class="event-date">28–29 Apr<span>Online</span></div>
+        <div class="event-detail">
+          <h3><a href="#/1">Interim Member Workdays — Online</a></h3>
+          <p>Two half day sessions from 9am Eastern to 1pm Eastern each day. Work will be done to prepare the topics of Agentic LSO and NaaS for AI in the lead up to the Mplify Member Summit in Lisbon.</p>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="event-date">8–9 Jun<span>Lisbon, Portugal<br/>(<a href="https://gne.mplify.net/mplify-member-summit-emea/" target="_blank">Mplify Member Summit</a>)</span></div>
+        <div class="event-detail">
+          <h3><a href="#/2">Member Workdays — EMEA</a></h3>
+          <p>Two full day in person sessions prior to the Member Summit. Work will focus on coordinating across the committees the projects developing in the areas of Agentic LSO and NaaS for AI.</p>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="event-date">21–22 Sep*<span>Boston, USA<br/>(Mplify Member Summit)</span></div>
+        <div class="event-detail">
+          <h3>Member Workdays — Americas</h3>
+          <p>Two full day in person sessions prior to the Member Summit. Work will focus on coordinating across the committees the projects developing in the areas of Agentic LSO and NaaS for AI.</p>
+        </div>
+      </div>
+      <div class="event-row">
+        <div class="event-date">1–2 Dec*<span>Singapore<br/>(ITW Asia)</span></div>
+        <div class="event-detail">
+          <h3>Member Workdays — Asia</h3>
+          <p>Two full day in person sessions colocated with the ITW Asia event. Work will focus on coordinating across the committees the projects developing in the areas of Agentic LSO and NaaS for AI.</p>
+        </div>
+      </div>
+      <p class="dates-note">* Dates to be confirmed</p>
     </section>
 
-    <!-- SLIDE 2: FOUR COMMITTEES -->
+    <!-- SLIDE 2 — INTERIM MEMBER WORKDAYS -->
     <section>
-      <h2>The Four Member Committees</h2>
-      <div class="accent-rule"></div>
-      <p class="slide-sub">Each committee operates under a formal charter and is led by two designated member volunteers (Committee Co-Chairs).</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:14px; margin-top:14px;">
-        <div class="committee-card accent-orange">
-          <div class="committee-card-title">Commercial and Business Committee (CBC)</div>
-          <div class="committee-card-sub">Enables and develops pre-standard and standards business and product deliverables supporting Mplify's NaaS standardization and adoption strategy and roadmap.</div>
-          <div class="committee-tag-row">
-            <span class="committee-tag">Carrier Ethernet</span>
-            <span class="committee-tag">Wavelength</span>
-            <span class="committee-tag">IP Services</span>
-            <span class="committee-tag">SD-WAN</span>
-            <span class="committee-tag">Cloud Connect</span>
-            <span class="committee-tag">IaaS</span>
-            <span class="committee-tag">Cybersecurity</span>
-          </div>
-        </div>
-        <div class="committee-card accent-blue">
-          <div class="committee-card-title">Digital Services Committee (DSC)</div>
-          <div class="committee-card-sub">Defines the service attributes, service definitions, and associated performance monitoring, fault management and implementation guides for services underpinning NaaS offerings.</div>
-          <div class="committee-tag-row">
-            <span class="committee-tag">Carrier Ethernet services</span>
-            <span class="committee-tag">Wavelength services</span>
-            <span class="committee-tag">IP services</span>
-            <span class="committee-tag">Cross connects</span>
-            <span class="committee-tag">IaaS</span>
-          </div>
-        </div>
-        <div class="committee-card accent-yellow">
-          <div class="committee-card-title">LSO Committee (LSOC)</div>
-          <div class="committee-card-sub">Defines the key elements of NaaS automation as part of the Lifecycle Service Orchestration framework including product and service schemas, APIs and developer guides.</div>
-          <div class="committee-tag-row">
-            <span class="committee-tag">API requirements/use cases</span>
-            <span class="committee-tag">API schemas</span>
-            <span class="committee-tag">Product schemas</span>
-            <span class="committee-tag">Service schemas</span>
-            <span class="committee-tag">MCP reference designs</span>
-          </div>
-        </div>
-        <div class="committee-card accent-purple">
-          <div class="committee-card-title">Test and Certification Committee (TCC)</div>
-          <div class="committee-card-sub">Oversees the design and governance of Mplify's certification programs, ensuring services and implementations meet published standards.</div>
-          <div class="committee-tag-row">
-            <span class="committee-tag">Carrier Ethernet for Business certification</span>
-            <span class="committee-tag">Carrier Ethernet for AI certification</span>
-            <span class="committee-tag">SD-WAN certification</span>
-            <span class="committee-tag">Cybersecurity certification</span>
-            <span class="committee-tag">LSO Test (OIT) service</span>
-            <span class="committee-tag">LSO API certification</span>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:12px;">
-        <div class="committee-card" style="border-top:3px solid var(--gray-lt); opacity:0.75; flex-direction:row; align-items:center; gap:16px; padding:12px 18px;">
-          <div style="font-family:'Sansation',sans-serif; font-weight:700; font-size:0.58em; color:var(--navy); white-space:nowrap; flex-shrink:0;">Marketing Committee (MC)</div>
-          <span style="font-family:'Sansation',sans-serif; font-size:0.32em; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:rgba(61,123,199,0.12); border:1px solid rgba(61,123,199,0.35); border-radius:4px; padding:3px 10px; color:var(--blue-lt);">Proposed</span>
-          <div style="font-size:0.38em; color:var(--text-secondary); font-family:'Roboto',sans-serif; font-weight:300; line-height:1.5; margin-left:8px;">Develops member consensus and approval for the marketing of Mplify assets.</div>
-          <div style="display:flex; flex-wrap:wrap; gap:5px; margin-left:8px; margin-top:6px;">
-            <span class="committee-tag">Standards</span>
-            <span class="committee-tag">APIs</span>
-            <span class="committee-tag">Product models</span>
-            <span class="committee-tag">Graphics</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      <h2>Interim Member Workdays — April 2026</h2>
+      <p style="font-size:0.5em; color:var(--text-secondary); font-family:'Roboto',sans-serif; font-weight:300; margin:-10px 0 16px; line-height:1.6;">Online workdays to prepare for work in the upcoming face to face workdays in Lisbon in June.</p>
 
-    <!-- SLIDE 3: COMMITTEE STRUCTURE -->
-    <section>
-      <h2>Organization of Committees</h2>
-      <div class="accent-rule"></div>
-      <p class="slide-sub">Each committee follows a consistent governance hierarchy from elected leadership through to working group contributors.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px;">
-        <div>
-          <div style="display:flex; flex-direction:column;">
-            <div><div class="org-box tier-1" style="border-top-color:var(--navy); color:var(--navy);">Mplify Board of Directors<div style="font-family:'Roboto',sans-serif; font-weight:300; font-size:0.75em; color:var(--gray-dk); margin-top:4px; letter-spacing:0;">Elected by membership annually</div></div></div>
-            <div class="org-connector"></div>
-            <div><div class="org-box tier-1" style="border-top-color:var(--blue-mid); color:var(--blue-mid);">Co-CEOs<div style="font-family:'Roboto',sans-serif; font-weight:300; font-size:0.75em; color:var(--gray-dk); margin-top:4px; letter-spacing:0;">Appointed by Board of Directors annually</div></div></div>
-            <div class="org-connector"></div>
-            <div><div class="org-box tier-1">Committee Co-Chairs<div style="font-family:'Roboto',sans-serif; font-weight:300; font-size:0.75em; color:var(--gray-dk); margin-top:4px; letter-spacing:0;">Designated by Co-CEOs on behalf of Board of Directors</div></div></div>
-            <div class="org-connector"></div>
-            <div class="org-level-row">
-              <div><div class="org-box tier-3">Project Leaders<div style="font-family:'Roboto',sans-serif; font-weight:300; font-size:0.75em; color:var(--gray-dk); margin-top:4px; letter-spacing:0;">Self-appointed or staff-appointed</div></div></div>
-            </div>
-          </div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div class="gov-block">
-            <div class="gov-block-title"><span class="dot"></span>Co-Chair Appointment and Tenure</div>
-            <ul class="gov-list">
-              <li><span>&rsaquo;</span>Volunteer positions</li>
-              <li><span>&rsaquo;</span>Member representatives submit candidacy in May</li>
-              <li><span>&rsaquo;</span>Selected candidates appointed in June for two years</li>
-              <li><span>&rsaquo;</span>One co-chair appointed per committee each year</li>
-            </ul>
-          </div>
-          <div class="gov-block">
-            <div class="gov-block-title"><span class="dot"></span>Project Leaders</div>
-            <ul class="gov-list">
-              <li><span>&rsaquo;</span>Member representatives and Mplify contractors</li>
-              <li><span>&rsaquo;</span>Start and end of project leadership set in Mplify Portal</li>
-              <li><span>&rsaquo;</span>No minimum or maximum tenure</li>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:18px;">
+
+        <!-- Day 1 -->
+        <div class="day-card day-card-blue">
+          <div style="font-family:'Sansation',sans-serif; font-weight:700; font-size:0.7em; color:var(--text-date); margin-bottom:2px;">Tue 28 Apr</div>
+          <div class="day-meta">9pm–1am* Singapore</div>
+          <div class="day-meta">3pm–6pm Central Europe</div>
+          <div class="day-meta">9am–1pm Eastern</div>
+          <div class="day-meta-sm">* next day</div>
+          <div class="day-meta" style="margin-bottom:10px;">Location: Teams - <a href="https://members.mplify.net/sfc/servlet.shepherd/document/download/069UI00000YHRoDYAX">download ICS (both days)</a></div>
+          <div class="day-title">NaaS for AI</div>
+          <p class="day-desc">Review, progress and vote on committee projects that advance the objective of availability of networks needed for a range of AI use cases.</p>
+          <div class="agenda-block">
+            <span class="agenda-label">📋 Agenda</span>
+            <ul class="agenda-list">
+              <li><span>›</span>NaaS for AI use cases</li>
+              <li><span>›</span>Carrier Ethernet for AI performance tiers (Mplify W23.3)</li>
+              <li><span>›</span>Carrier Ethernet for Business certification</li>
+              <li><span>›</span>Carrier Ethernet for AI certification</li>
+              <li><span>›</span>Standardization of product schemas</li>
+              <li><span>›</span>NaaS Federation</li>
             </ul>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- SLIDE 4: LEADERSHIP ROLES -->
-    <section>
-      <h2>Co-Chair Role and Responsibilities</h2>
-      <div class="accent-rule"></div>
-      <p class="slide-sub">Committee leadership roles are volunteer positions filled by member company representatives with relevant technical or commercial expertise. All leadership positions are voluntary and unpaid. Mplify Alliance staff provide administrative and editorial support.</p>
-      <div class="role-row" style="grid-template-columns:1fr;">
-        <div class="role-card">
-          <div class="role-title">Committee Co-Chair</div>
-          <ul class="role-list" style="display:grid; grid-template-columns:1fr 1fr; gap:0 24px;">
-            <li><span>&rsaquo;</span>Aligns the committee vision and roadmap to Mplify's strategic objectives</li>
-            <li><span>&rsaquo;</span>Shares chairing duties in committee workday meetings</li>
-            <li><span>&rsaquo;</span>Works in close collaboration with Mplify staff</li>
-            <li><span>&rsaquo;</span>Promotes member engagement in projects and outreach</li>
-            <li><span>&rsaquo;</span>Encourages voting in monthly project ballots</li>
-            <li><span>&rsaquo;</span>Initiates and approves decisions in the Co-Chair meetings</li>
-            <li><span>&rsaquo;</span>Ensures continuity across committee activities</li>
-            <li><span>&rsaquo;</span>Represents the committee to the Co-CEOs</li>
-            <li><span>&rsaquo;</span>Manages cross-committee dependencies</li>
-            <li><span>&rsaquo;</span>Reports committee progress to the Mplify Board</li>
-            <li><span>&rsaquo;</span>Curates projects initiated by members within the committee</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5: CHARTER FRAMEWORK -->
-    <section>
-      <div class="watermark">IN DEVELOPMENT</div>
-      <h2>Charter Framework</h2>
-      <div class="accent-rule"></div>
-      <p class="slide-sub">Every committee charter covers the same core sections, ensuring consistency in how committees are defined and held accountable.</p>
-      <div class="charter-grid">
-        <div>
-          <div class="charter-row">
-            <div class="charter-icon">&#127919;</div>
-            <div class="charter-detail">
-              <h3>Purpose &amp; Scope</h3>
-              <p>Defines the committee's primary mandate, the areas it is authorised to standardise, and explicit boundaries with adjacent committees to prevent duplication of scope.</p>
-            </div>
-          </div>
-          <div class="charter-row">
-            <div class="charter-icon">&#128203;</div>
-            <div class="charter-detail">
-              <h3>Objectives &amp; Deliverables</h3>
-              <p>Lists the expected outputs &mdash; standards documents, API specifications, certification test suites &mdash; with indicative timelines aligned to the annual workday calendar.</p>
-            </div>
-          </div>
-          <div class="charter-row">
-            <div class="charter-icon">&#128505;</div>
-            <div class="charter-detail">
-              <h3>Voting &amp; Quorum Rules</h3>
-              <p>Specifies the quorum threshold, voting eligibility (Voting Members only), approval majorities for different decision types, and the process for resolving tied votes.</p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="charter-row">
-            <div class="charter-icon">&#128197;</div>
-            <div class="charter-detail">
-              <h3>Meeting Cadence</h3>
-              <p>Establishes minimum meeting frequency &mdash; typically monthly online calls plus attendance at Mplify Member Workdays &mdash; and requirements for agenda publication and minute distribution.</p>
-            </div>
-          </div>
-          <div class="charter-row">
-            <div class="charter-icon">&#129309;</div>
-            <div class="charter-detail">
-              <h3>Membership &amp; Participation</h3>
-              <p>Defines participation rights by membership tier, attendance expectations for Voting Members, and how contributors from other organisations may engage with working groups.</p>
-            </div>
-          </div>
-          <div class="charter-row">
-            <div class="charter-icon">&#128260;</div>
-            <div class="charter-detail">
-              <h3>Charter Review &amp; Amendment</h3>
-              <p>Charters are reviewed annually by the Chair Council. Amendments require a two-thirds majority vote of Voting Members and ratification by the Mplify Board.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 6: GOVERNANCE -->
-    <section>
-      <div class="watermark">IN DEVELOPMENT</div>
-      <h2>Governance &amp; Operations</h2>
-      <div class="accent-rule"></div>
-      <p class="slide-sub">Decision making in the committees is managed in monthly ballots with consistent rules across all the committees with an emphasis on transparency, fairness and speed of decision-making.</p>
-      <div class="gov-grid" style="grid-template-columns:1fr 1fr 1fr;">
-        <div class="gov-block">
-          <div class="gov-block-title"><span class="dot"></span>Voting</div>
-          <ul class="gov-list">
-            <li><span>&rsaquo;</span>Ballots are held for one week starting on the last Monday of every calendar month</li>
-            <li><span>&rsaquo;</span>Only Principal Members, Operator Plus Members and Operator Basic Members are entitled to vote</li>
-            <li><span>&rsaquo;</span>One vote per voting company regardless of delegate count</li>
-            <li><span>&rsaquo;</span>Required majority to pass ballots depends on ballot type</li>
-            <li><span>&rsaquo;</span>All ballots are held online</li>
-
-          </ul>
-        </div>
-
-        <div class="gov-block">
-          <div class="gov-block-title"><span class="dot"></span>Meeting Operations</div>
-          <ul class="gov-list">
-            <li><span>&rsaquo;</span>Agendas for meetings are not required in advance</li>
-            <li><span>&rsaquo;</span>Recordings, transcriptions and AI summaries are optional for meetings but available for all members if implemented</li>
-          </ul>
-        </div>
-        <div class="gov-block">
-          <div class="gov-block-title"><span class="dot"></span>Deliverable Process</div>
-          <ul class="gov-list">
-            <li><span>&rsaquo;</span>Committees manage projects to create deliverables</li>
-            <li><span>&rsaquo;</span>These deliverables become Mplify assets if approved in ballots</li>
-            <li><span>&rsaquo;</span>Committee co-chairs oversee the projects and the eventual deliverables</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 7: GETTING INVOLVED -->
-    <section>
-      <div class="watermark">IN DEVELOPMENT</div>
-      <h2>Getting Involved</h2>
-      <div class="accent-rule"></div>
-      <p class="slide-sub">Member companies are encouraged to participate actively &mdash; from contributing to working groups through to standing for elected Co-Chair positions.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px;">
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div class="charter-row" style="border-color:var(--gray-lt);">
-            <div class="charter-icon" style="font-size:0.75em; flex-shrink:0;">1</div>
-            <div class="charter-detail">
-              <h3>Attend Committee Plenaries</h3>
-              <p>All member company representatives may attend monthly plenary sessions. Register via the Mplify Member Portal. Meeting links are distributed to registered attendees.</p>
-            </div>
-          </div>
-          <div class="charter-row" style="border-color:var(--blue-lt);">
-            <div class="charter-icon" style="font-size:0.75em; flex-shrink:0;">2</div>
-            <div class="charter-detail">
-              <h3>Join a Working Group</h3>
-              <p>Express interest to a Committee Co-Chair. WG participation is open to all member tiers and is the primary way contributions are made to standards drafts.</p>
-            </div>
-          </div>
-          <div class="charter-row" style="border-color:var(--orange);">
-            <div class="charter-icon" style="font-size:0.75em; flex-shrink:0;">3</div>
-            <div class="charter-detail">
-              <h3>Stand for Co-Chair</h3>
-              <p>Nominations open 60 days before the AGM. Any Voting Member company representative with 12+ months participation is eligible to stand for a Co-Chair position.</p>
-            </div>
-          </div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div class="gov-block">
-            <div class="gov-block-title"><span class="dot"></span>Key Contacts</div>
-            <ul class="gov-list">
-              <li><span>&rsaquo;</span>Committee queries &rarr; your Committee Co-Chair</li>
-              <li><span>&rsaquo;</span>Charter copies &rarr; Mplify Member Portal</li>
-              <li><span>&rsaquo;</span>Nomination process &rarr; committees at mplify.net</li>
-              <li><span>&rsaquo;</span>WG interest &rarr; Co-Chair of the relevant committee</li>
+        <!-- Day 2 -->
+        <div class="day-card day-card-orange">
+          <div style="font-family:'Sansation',sans-serif; font-weight:700; font-size:0.7em; color:var(--text-date); margin-bottom:2px;">Wed 29 Apr</div>
+          <div class="day-meta">9pm–1am* Singapore</div>
+          <div class="day-meta">3pm–6pm Central Europe</div>
+          <div class="day-meta">9am–1pm Eastern</div>
+          <div class="day-meta-sm">* next day</div>
+          <div class="day-meta" style="margin-bottom:10px;">Location: Teams <a href="https://members.mplify.net/sfc/servlet.shepherd/document/download/069UI00000YHRoDYAX">download ICS (both days)</a></div>
+          <div class="day-title">Agentic AI for LSO</div>
+          <p class="day-desc">Review, progress and vote on committee projects that advance use of agentic AI for business interoperability and federation in NaaS.</p>
+          <div class="agenda-block">
+            <span class="agenda-label">📋 Agenda</span>
+            <ul class="agenda-list">
+              <li><span>›</span>Use cases and market demand</li>
+              <li><span>›</span>High level architecture</li>
+              <li><span>›</span>Technical package and release framework</li>
+              <li><span>›</span>Agent legal identity</li>
+              <li><span>›</span>Model dependency</li>
+              <li><span>›</span>Secure agentic LSO and certification</li>
             </ul>
           </div>
-          <div class="gov-block">
-            <div class="gov-block-title"><span class="dot"></span>Upcoming Opportunities</div>
-            <ul class="gov-list">
-              <li><span>&rsaquo;</span><strong>28&ndash;29 Apr</strong> &mdash; Interim Workdays (online)</li>
-              <li><span>&rsaquo;</span><strong>8&ndash;9 Jun</strong> &mdash; EMEA Workdays, Lisbon</li>
-              <li><span>&rsaquo;</span><strong>Sep*</strong> &mdash; Americas Workdays, Boston</li>
-              <li><span>&rsaquo;</span><strong>Dec*</strong> &mdash; Asia Workdays, Singapore</li>
-            </ul>
-          </div>
-          <p class="dates-note">* Dates to be confirmed</p>
         </div>
+
       </div>
     </section>
 
-  </div>
-</div>
+    <!-- SLIDE 3 — INTERIM MEMBER WORKDAYS (DUPLICATE) -->
+    <section>
+      <h2>Member Workdays — EMEA</h2>
+      <p style="font-size:0.5em; color:var(--text-secondary); font-family:'Roboto',sans-serif; font-weight:300; margin:-10px 0 16px; line-height:1.6;">Face to face workdays to coordinate all the ongoing projects in all the member committees.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:18px;">
+
+        <!-- Day 1 -->
+        <div class="day-card day-card-blue">
+          <div style="font-family:'Sansation',sans-serif; font-weight:700; font-size:0.7em; color:var(--text-date); margin-bottom:2px;">Mon 8 Jun</div>
+          <div class="day-meta"><strong>9am–5pm Lisbon</strong></div>
+          <div class="day-meta">10am–6pm Central Europe</div>
+          <div class="day-meta">4pm–12am* Singapore</div>
+          <div class="day-meta">4am–12pm Eastern</div>
+          <div class="day-meta-sm">* next day</div>
+          <div class="day-meta">Physical: <a href="https://gne.mplify.net/mplify-member-summit-emea/hotel-travel-lisbon/" target="_blank">EPIC SANA Marquês Hotel</a></div>
+          <div class="day-meta" style="margin-bottom:10px;">Remote: Teams (link to be provided)</div>
+          <div class="day-title">Day 1</div>
+          <p class="day-desc">Discussion and actions for projects relating to NaaS and agentic LSO.</p>
+          <div class="agenda-block">
+            <span class="agenda-label">📋 Agenda</span>
+            <ul class="agenda-list">
+              <li><span>›</span>NaaS for AI use cases</li>
+              <li><span>›</span>NaaS Federation</li>
+              <li><span>›</span>Agentic LSO architecture</li>
+              <li><span>›</span>Secure agentic LSO</li>
+              <li><span>›</span>AI agent identity</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card day-card-orange">
+          <div style="font-family:'Sansation',sans-serif; font-weight:700; font-size:0.7em; color:var(--text-date); margin-bottom:2px;">Tue 9 Jun</div>
+          <div class="day-meta"><strong>9am–5pm Lisbon</strong></div>
+          <div class="day-meta">10am–6pm Central Europe</div>
+          <div class="day-meta">4pm–12am* Singapore</div>
+          <div class="day-meta">4am–12pm Eastern</div>
+          <div class="day-meta-sm">* next day</div>
+          <div class="day-meta">Physical: <a href="https://gne.mplify.net/mplify-member-summit-emea/hotel-travel-lisbon/" target="_blank">EPIC SANA Marquês Hotel</a></div>
+          <div class="day-meta" style="margin-bottom:10px;">Remote: Teams (link to be provided)</div>
+          <div class="day-title">Day 2</div>
+          <p class="day-desc">Discussion and actions for projects relating to products.</p>
+          <div class="agenda-block">
+            <span class="agenda-label">📋 Agenda</span>
+            <ul class="agenda-list">
+              <li><span>›</span>Carrier Ethernet</li>
+              <li><span>›</span>Wavelength</li>
+              <li><span>›</span>IP</li>
+              <li><span>›</span>Cross Connect</li>
+              <li><span>›</span>Cloud Connect</li>
+              <li><span>›</span>IaaS</li>
+              <li><span>›</span>SD-WAN</li>
+              <li><span>›</span>Cybersecurity</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /.slides -->
+</div><!-- /.reveal -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
 <script>
   Reveal.initialize({
     hash: true,
-    slideNumber: 'c/t',
-    progress: true,
+    slideNumber: false,
+    progress: false,
     controls: true,
     center: false,
     transition: 'fade',
     transitionSpeed: 'slow',
     backgroundTransition: 'fade',
+    postMessage: true,
     margin: 0.12,
     width: 1280,
     height: 720,
